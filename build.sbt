@@ -1,4 +1,4 @@
-name := "Akka-Persistence"
+ name := "Akka-Persistence"
 
 version := "0.1"
 

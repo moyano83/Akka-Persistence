@@ -1,7 +1,7 @@
 --Setup database
-DROP DATABASE IF EXISTS rtjvm;
-CREATE DATABASE rtjvm;
-\c rtjvm;
+DROP DATABASE IF EXISTS testdb;
+CREATE DATABASE testdb;
+\c testdb;
 
 
 -- pretty much standard config for postgres in the context of Akka Persistence

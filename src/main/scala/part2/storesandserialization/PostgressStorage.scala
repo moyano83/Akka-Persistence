@@ -3,10 +3,9 @@ package part2.storesandserialization
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 
-object L1_LocalStores extends App{
-
-  val localStores = ActorSystem("localStoresSystem", ConfigFactory.load().getConfig("localStores"))
-  val localActor = localStores.actorOf(Props[SimplePersistenceActor], "simplePersistentActor")
+object PostgressStorage extends App{
+  val postgressStores = ActorSystem("postgresActorSystem", ConfigFactory.load().getConfig("postgresSQL"))
+  val localActor = postgressStores.actorOf(Props[SimplePersistenceActor], "simplePersistentActorPostgres")
 
   for(i <- 1 to 10) {
     localActor ! s"I love Akka ${i}"
@@ -19,5 +18,6 @@ object L1_LocalStores extends App{
   }
 
   Thread.sleep(2000)
-  localStores.terminate()
+  postgressStores.terminate()
+
 }
