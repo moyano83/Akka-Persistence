@@ -10,6 +10,7 @@ lazy val postgresVersion = "42.2.2"
 lazy val cassandraVersion = "0.91"
 lazy val json4sVersion = "3.2.11"
 lazy val protobufVersion = "3.6.1"
+lazy val sprayVersion = "1.3.5"
 
 // some libs are available in Bintray's JCenter
 resolvers += Resolver.jcenterRepo
@@ -25,10 +26,12 @@ libraryDependencies ++= Seq(
   "org.postgresql" % "postgresql" % postgresVersion,
   "com.github.dnvriend" %% "akka-persistence-jdbc" % "3.4.0",
 
+  //Serialization
+  "io.spray" %%  "spray-json" % sprayVersion,
+
   // Cassandra
   "com.typesafe.akka" %% "akka-persistence-cassandra" % cassandraVersion,
   "com.typesafe.akka" %% "akka-persistence-cassandra-launcher" % cassandraVersion % Test,
-
   // Google Protocol Buffers
-  "com.google.protobuf" % "protobuf-java"  % protobufVersion,
+  "com.google.protobuf" % "protobuf-java"  % protobufVersion
 )
